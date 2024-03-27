@@ -101,7 +101,7 @@ ls_LMn <- pbapply::pblapply(
     LMx <- LMx_list[[x]]
     LMy <- LMy_list[[x]]
     LMx <- LMx[LMx$coef > 0 & LMx$p.adjust < 1e-05, ]
-    LMy <- rownames(LMy[LMy$avg_logFC > 0.25, ])
+    LMy <- rownames(LMy[LMy$avg_logFC >= 0.25, ])
     LMy <- LMy[!grepl("^RP[SL]", LMy, ignore.case = F)]  # (ribosome protein free)
     LMn <- LMx[LMx$gene %in% LMy, ]
   }
