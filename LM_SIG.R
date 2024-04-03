@@ -128,9 +128,8 @@ genelist$all_gmean <- compositions::geometricmeanRow(genelist[, 1:length(ls_LMn)
 
 sig <- genelist[genelist$all_gmean > 0.25, ]  # filter genes with spearmanR geometric mean > 0.25
 sig <- sig[order(sig$all_gmean, decreasing = T),]
-sig <- rownames(sig)
+LM_SIG <- rownames(sig)
 
-LM_SIG <- intersect(sig, Lactate_Metabolism_gs)
 saveRDS(LM_SIG, file = "LM_SIG.rds")
 
 
